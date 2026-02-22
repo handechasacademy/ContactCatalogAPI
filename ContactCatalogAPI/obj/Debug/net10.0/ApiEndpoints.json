@@ -1,0 +1,97 @@
+[
+  {
+    "ContainingType": "ContactCatalogAPI.Controllers.ContactsController",
+    "Method": "GetAll",
+    "RelativePath": "api/contacts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ContactCatalogAPI.Controllers.ContactsController",
+    "Method": "Add",
+    "RelativePath": "api/contacts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ContactCatalogAPI.DTOs.CreateContactDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ContactCatalogAPI.Controllers.ContactsController",
+    "Method": "Remove",
+    "RelativePath": "api/contacts/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ContactCatalogAPI.Controllers.ContactsController",
+    "Method": "Update",
+    "RelativePath": "api/contacts/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ContactCatalogAPI.DTOs.UpdateContactDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ContactCatalogAPI.Controllers.ContactsController",
+    "Method": "Filter",
+    "RelativePath": "api/contacts/filter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tag",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ContactCatalogAPI.Controllers.ContactsController",
+    "Method": "Search",
+    "RelativePath": "api/contacts/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
