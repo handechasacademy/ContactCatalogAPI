@@ -2,7 +2,6 @@
 {
     public class CreateContactDto
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Tag { get; set; }

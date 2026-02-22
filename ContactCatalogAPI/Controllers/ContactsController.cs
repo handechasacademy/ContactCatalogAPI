@@ -28,12 +28,8 @@ namespace ContactCatalogAPI.Controllers
         {
             try
             {
-                var contact = _service.SaveContact(dto.Id, dto.Name, dto.Email, dto.Tag);
+                var contact = _service.SaveContact(dto.Name, dto.Email, dto.Tag);
                 return CreatedAtAction(nameof(GetAll), new { id = contact.Id }, contact);
-            }
-            catch (DuplicateIdException ex)
-            {
-                return BadRequest(ex.Message);
             }
             catch (DuplicateEmailException ex)
             {

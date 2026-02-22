@@ -36,3 +36,7 @@ C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\obj\Debug\net10.
 C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\obj\Debug\net10.0\ContactCatalogAPI.pdb
 C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\obj\Debug\net10.0\ContactCatalogAPI.genruntimeconfig.cache
 C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\obj\Debug\net10.0\ref\ContactCatalogAPI.dll
+C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\bin\Debug\net10.0\ContactCatalogAPI.staticwebassets.runtime.json
+C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\obj\Debug\net10.0\compressed\geoqq0vyo7-{0}-m6t8iqaf5f-m6t8iqaf5f.gz
+C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\obj\Debug\net10.0\compressed\lbq8o6dbb5-{0}-dyjx89twm7-dyjx89twm7.gz
+C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\obj\Debug\net10.0\compressed\x2b3702dv6-{0}-3r8b2a0bt1-3r8b2a0bt1.gz

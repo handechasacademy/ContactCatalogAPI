@@ -1,4 +1,5 @@
-﻿using ContactCatalogAPI.Models;
+﻿using System.Collections.Generic;
+using ContactCatalogAPI.Models;
 using ContactCatalogAPI.Repositories;
 
 namespace ContactCatalogAPI.Services
@@ -12,9 +13,9 @@ namespace ContactCatalogAPI.Services
             _repository = repository;
         }
 
-        public Contact SaveContact(int id, string name, string email, string tag)
+        public Contact SaveContact(string name, string email, string tag)
         {
-            return _repository.SaveContact(id, name, email, tag);
+            return _repository.SaveContact(name, email, tag);
         }
 
         public string RemoveContact(int id)

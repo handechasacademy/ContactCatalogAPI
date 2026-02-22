@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ContactCatalogAPI.Models;
 using ContactCatalogAPI.Validators;
@@ -12,7 +11,7 @@ namespace ContactCatalogAPI.Repositories
         private Dictionary<int, Contact> _contacts = new Dictionary<int, Contact>();
         private HashSet<string> _emails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private ILogger<ContactRepository> _logger;
-
+        private int _nextId = 1;
 
         public ContactRepository(Dictionary<int, Contact> contacts,
                          HashSet<string> emails,
@@ -23,14 +22,18 @@ namespace ContactCatalogAPI.Repositories
             _logger = logger;
         }
 
-        public Contact SaveContact(int id, string name, string email, string tag)
+        public Contact SaveContact(string name, string email, string tag)
         {
-            if (_contacts.ContainsKey(id))
-                throw new DuplicateIdException(id);
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email))
+                throw new InvalidInputException("Name and/or Email cannot be empty.");
+
+            if (!EmailValidator.IsValidEmail(email))
+                throw new InvalidInputException("Invalid email format.");
 
             if (_emails.Contains(email))
                 throw new DuplicateEmailException(email);
 
+            int id = _nextId++;
             var tags = new List<string> { tag };
             var contact = new Contact(id, name, email, tags);
 
@@ -47,9 +50,7 @@ namespace ContactCatalogAPI.Repositories
                 var contact = _contacts[id];
 
                 if (!string.IsNullOrWhiteSpace(newName))
-                {
                     contact.Name = newName;
-                }
 
                 if (!string.IsNullOrWhiteSpace(newEmail))
                 {
