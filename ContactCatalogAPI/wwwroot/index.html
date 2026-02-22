@@ -2,9 +2,95 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Adeptus Contactus</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section class="introAndSearchContainer">
+        <div class="introContainer">
+            <h1>Adeptus Contactus</h1>
+        </div>
+        <div class="searchContainer">
+            <input type="text" id="searchInput" placeholder="Search contacts..." />
+        </div>
+    </section>
 
+    <div class="mainLayout">
+        <!-- LEFT: Add Contact -->
+        <section class="addContactContainer">
+            <div class="contactForm">
+                <h2>Recruit a Soul</h2>
+                <div class="contactUnit">
+                    <span class="contactLabel">Full Name</span>
+                    <input type="text" id="contactName" placeholder="Enter name" />
+                </div>
+                <div class="contactUnit">
+                    <span class="contactLabel">Email</span>
+                    <input type="email" id="contactEmail" placeholder="Enter email" />
+                </div>
+                <div class="contactUnit">
+                    <span class="contactLabel">Tag Assignment</span>
+                    <input type="text" id="contactTag" placeholder="Enter tag" />
+                </div>
+                <button id="addContactButton">Recruit</button>
+            </div>
+        </section>
+
+        <!-- RIGHT: Filter + List -->
+        <div class="rightPanel">
+            <section class="filterContainer">
+                <h2>Locate Heretic</h2>
+                <div class="filterRow">
+                    <div class="filterUnit">
+                        <span class="filterLabel">Full Name</span>
+                        <input type="text" id="filterName" placeholder="Filter by name" />
+                    </div>
+                    <div class="filterUnit">
+                        <span class="filterLabel">Tag</span>
+                        <input type="text" id="filterTag" placeholder="Filter by tag" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="contactListContainer">
+                <h2>Roll of Honour</h2>
+                <div class="contactTableHeader">
+                    <span>ID</span>
+                    <span>Name</span>
+                    <span>Email</span>
+                    <span>Tags</span>
+                    <span>Actions</span>
+                </div>
+                <ul id="contactList">
+                    <li>
+                        <span class="contactId">#1</span>
+                        <span class="contactName">Saint Celestine</span>
+                        <span class="contactEmail">celestine@adeptussororitas.com</span>
+                        <div class="contactTags"><span class="tag">work</span></div>
+                        <div class="contactActions">
+                            <button class="updateBtn">Update</button>
+                            <button class="purgeBtn">Purge</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <!-- Update Modal -->
+    <div id="updateModal" class="hidden">
+        <div class="modalContent">
+            <h2>Update Contact</h2>
+            <input type="text" id="updateName" placeholder="New name (optional)" />
+            <input type="text" id="updateEmail" placeholder="New email (optional)" />
+            <input type="text" id="updateTagAdd" placeholder="Tag to add (optional)" />
+            <input type="text" id="updateTagRemove" placeholder="Tag to remove (optional)" />
+            <div class="modalButtons">
+                <button id="saveUpdateBtn">Save</button>
+                <button id="cancelUpdateBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
