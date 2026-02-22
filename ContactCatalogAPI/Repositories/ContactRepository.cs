@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ContactCatalogAPI.Models;
-using ContactCatalogAPI.Services;
 using ContactCatalogAPI.Validators;
-using ContactCatalogAPI.Models;
 using Microsoft.Extensions.Logging;
 
 namespace ContactCatalogAPI.Repositories
@@ -25,24 +23,24 @@ namespace ContactCatalogAPI.Repositories
             _logger = logger;
         }
 
-        public void SaveContact(Contact contact)
+        public Contact SaveContact(int id, string name, string email, string tag)
         {
-            if (_contacts.ContainsKey(contact.Id))
-            {
-                throw new Exception("ID already exists.");
-            }
-            else if (_emails.Contains(contact.Email))
-            {
-                throw new Exception("Email already exists.");
-            }
-            else
-            {
-                _contacts.Add(contact.Id, contact);
-                _emails.Add(contact.Email);
-            }
+            if (_contacts.ContainsKey(id))
+                throw new DuplicateIdException(id);
+
+            if (_emails.Contains(email))
+                throw new DuplicateEmailException(email);
+
+            var tags = new List<string> { tag };
+            var contact = new Contact(id, name, email, tags);
+
+            _contacts.Add(contact.Id, contact);
+            _emails.Add(contact.Email);
+
+            return contact;
         }
 
-        public void UpdateContact(int id, string newName, string newEmail, string tagToAdd, string tagToRemove)
+        public string UpdateContact(int id, string newName, string newEmail, string tagToAdd, string tagToRemove)
         {
             if (_contacts.ContainsKey(id))
             {
@@ -56,13 +54,9 @@ namespace ContactCatalogAPI.Repositories
                 if (!string.IsNullOrWhiteSpace(newEmail))
                 {
                     if (_emails.Contains(newEmail))
-                    {
                         throw new DuplicateEmailException(newEmail);
-                    }
                     else if (!EmailValidator.IsValidEmail(newEmail))
-                    {
                         throw new InvalidInputException("Invalid email format.");
-                    }
                     else
                     {
                         _emails.Remove(contact.Email);
@@ -86,6 +80,8 @@ namespace ContactCatalogAPI.Repositories
                     else
                         throw new InvalidInputException($"Tag '{tagToRemove}' not found.");
                 }
+
+                return $"Contact with ID {id} has been updated.";
             }
             else
             {

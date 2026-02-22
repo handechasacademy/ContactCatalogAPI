@@ -1,6 +1,14 @@
-﻿namespace ContactCatalogAPI.Repositories
+﻿using ContactCatalogAPI.Models;
+
+namespace ContactCatalogAPI.Repositories
 {
     public interface IContactRepository
     {
+        Contact SaveContact(int id, string name, string email, string tag);
+        string RemoveContact(int id);
+        List<Contact> SearchByName(string namePart);
+        List<Contact> FilterByTag(string tag);
+        List<Contact> ListContacts();
+        string UpdateContact(int id, string newName, string newEmail, string tagToAdd, string tagToRemove);
     }
 }

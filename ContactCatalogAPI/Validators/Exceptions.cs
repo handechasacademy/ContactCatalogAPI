@@ -20,4 +20,8 @@ namespace ContactCatalogAPI.Validators
     {
         public InvalidInputException(string message) : base(message) { }
     }
+    public class DuplicateIdException : Exception
+    {
+        public DuplicateIdException(int id) : base($"A contact with ID {id} already exists.") { }
+    }
 }
