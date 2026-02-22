@@ -1,10 +1,11 @@
-﻿using ContactCatalogAPI.Models;
+﻿using System.Collections.Generic;
+using ContactCatalogAPI.Models;
 
 namespace ContactCatalogAPI.Repositories
 {
     public interface IContactRepository
     {
-        Contact SaveContact(int id, string name, string email, string tag);
+        Contact SaveContact(string name, string email, string tag);
         string RemoveContact(int id);
         List<Contact> SearchByName(string namePart);
         List<Contact> FilterByTag(string tag);
