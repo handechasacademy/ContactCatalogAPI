@@ -1,6 +1,0 @@
-wwwroot\app.js
-wwwroot\index.html
-wwwroot\style.css
-C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\wwwroot\app.js
-C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\wwwroot\index.html
-C:\Users\Hande\source\repos\ContactCatalogAPI\ContactCatalogAPI\wwwroot\style.css
